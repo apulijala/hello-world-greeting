@@ -17,7 +17,7 @@ pipeline{
         stage("Build and Unit Test"){
             steps{
                 echo "Build and Unit Test"
-                sh 'mvn clean install'
+                sh 'mvn clean verify -DskipITs=true'
                 junit 'target/surefire-reports/TEST-*.xml'
             }
         }
