@@ -26,16 +26,7 @@
 
     <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
    
-  <profiles>
-      <profile>
-      <id>sonar</id>
-      <activation>
-      <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-      </properties>
-      </profile>
-  </profiles>
+ 
 
   <build>
     <pluginManagement>
