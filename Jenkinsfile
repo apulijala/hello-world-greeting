@@ -40,12 +40,13 @@ pipeline{
        stage ('Publish'){
 
             steps {
+                 echo "Uploading to the artifactory"
                 rtUpload (
                     serverId: 'andrew-artifactory',
                     spec: '''{
                         "files": [
                             {
-                            "pattern": "target/hello-0.0.1.war",
+                            "pattern": "target/helloworld-example-0.1.0.jar",
                             "target": "example-repo-local/froggy-files/"
                             
                             }
