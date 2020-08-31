@@ -41,12 +41,12 @@ pipeline{
 
             steps {
                 rtUpload (
-                    serverId: 'andrew-artifactory-old',
+                    serverId: 'andrew-artifactory',
                     spec: '''{
                         "files": [
                             {
                             "pattern": "target/hello-0.0.1.war",
-                            "target": "example-project/froggy-files/"
+                            "target": "example-repo-local/froggy-files/"
                             
                             }
                         ]
