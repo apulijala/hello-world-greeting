@@ -53,7 +53,7 @@ pipeline{
                         ]
                     }''',
                     buildName: 'holyFrog',
-                    buildNumber: '42'
+                    buildNumber: '44'
                 )        
             }
         }
