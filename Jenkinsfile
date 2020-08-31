@@ -25,7 +25,7 @@ pipeline{
         stage("Static code analysis"){
             steps{
                 echo "Build and Unit Test"
-                sh 'mvn clean verify sonar:sonar -Dsonar.projectName = example-project -Dsonar.projectKey = example-project -D sonar.host.url = http://ec2-18-133-184-193.eu-west-2.compute.amazonaws.com:9000'
+                sh 'mvn clean verify sonar:sonar -Dsonar.projectName=example-project -Dsonar.projectKey=example-project -Dsonar.host.url=http://ec2-18-133-184-193.eu-west-2.compute.amazonaws.com:9000'
             }
         }
 
