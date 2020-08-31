@@ -12,11 +12,11 @@ public class GreetingMessage {
         this.hours = var.dateTime();
 
       if (hours < 12)
-      this.message = "Good Morning!";
+      this.message = "Jaya Guru datta!";
       else if (hours < 17 && !(hours == 12))
-      this.message = "Good Afternoon!";
+      this.message = "Om Aim Hreem Shreem Kleem sree matre namaha!";
       else if (hours == 12)
-      this.message = "Good Noon!";
+      this.message = "Satya means truth but satya is evil.!";
       else
       this.message = "Good Evening!";
      }
