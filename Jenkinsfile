@@ -38,24 +38,24 @@ pipeline{
         }
 
        stage ('Publish'){
-           
-        rtUpload (
-            serverId: 'andrew-artifactory',
-            spec: '''{
-                  "files": [
-                    {
-                      "pattern": "target/hello-0.0.1.war",
-                      "target": "example-project/froggy-files/"
-                      
-                    }
-                 ]
-            }''',
-            buildName: 'holyFrog',
-            buildNumber: '42'
-)        
-        
-        
-}
+
+            steps {
+                rtUpload (
+                    serverId: 'andrew-artifactory',
+                    spec: '''{
+                        "files": [
+                            {
+                            "pattern": "target/hello-0.0.1.war",
+                            "target": "example-project/froggy-files/"
+                            
+                            }
+                        ]
+                    }''',
+                    buildName: 'holyFrog',
+                    buildNumber: '42'
+                )        
+            }
+        }
     }
  
 }
