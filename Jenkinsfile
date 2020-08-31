@@ -19,6 +19,8 @@ pipeline{
                 echo "Build and Unit Test"
                 sh 'mvn clean verify -DskipITs=true'
                 junit 'target/surefire-reports/TEST-*.xml'
+                archive 'target/*.jar'
+
             }
         }
 
@@ -37,7 +39,19 @@ pipeline{
 
         stage("Publish to artifactory"){
             steps{
+                def server = Artifactory.server 'andrew-artifactory'
+                def uploadSpec = """{
+                    "files": [
+                        {
+                        "pattern": "target/hello-*.war",
+                        "target": "helloworld-greeting-project/${BUILD_NUMBER}/",
+                        "props": "Integration-Tested=Yes;Performance-Tested=No"
+                        }
+                    ]
+                    }"""
+
                 echo "Publish to artifactory"
+
             }
         }
         
