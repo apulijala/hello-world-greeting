@@ -37,30 +37,25 @@ pipeline{
             }
         }
 
-        stage("Publish to artifactory"){
-            steps{
-                def server = Artifactory.server 'andrew-artifactory'
-                def uploadSpec = """{
-                    "files": [
-                        {
-                        "pattern": "target/hello-*.war",
-                        "target": "helloworld-greeting-project/${BUILD_NUMBER}/",
-                        "props": "Integration-Tested=Yes;Performance-Tested=No"
-                        }
-                    ]
-                    }"""
-
-                echo "Publish to artifactory"
-
-            }
-        }
+       stage ('Publish'){
+           
+        rtUpload (
+            serverId: 'andrew-artifactory',
+            spec: '''{
+                  "files": [
+                    {
+                      "pattern": "target/hello-0.0.1.war",
+                      "target": "example-project/froggy-files/"
+                      
+                    }
+                 ]
+            }''',
+            buildName: 'holyFrog',
+            buildNumber: '42'
+)        
         
-
-
-
-
-
-
+        
+}
     }
  
 }
